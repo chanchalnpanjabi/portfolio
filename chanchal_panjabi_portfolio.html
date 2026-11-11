@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chanchal Panjabi | Data & Risk Analytics Professional</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            850: '#151e30',
+                            900: '#0f172a',
+                            950: '#090d16',
+                        },
+                        emerald: {
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+        /* Background Grid Pattern */
+        .bg-analytics-grid {
+            background-image: 
+                linear-gradient(to right, rgba(16, 185, 129, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(16, 185, 129, 0.04) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-emerald-500 selection:text-slate-950 bg-analytics-grid">
+
+    <!-- Toast Notification / Copy Alert -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-emerald-500 text-slate-950 px-4 py-3 rounded-xl shadow-lg font-medium flex items-center gap-2">
+        <i data-lucide="check-circle" class="w-5 h-5"></i>
+        <span id="toast-message">Copied to clipboard!</span>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-40 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/60">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#hero" class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+                <span class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-extrabold text-sm">CP</span>
+                <span>Chanchal Panjabi</span>
+            </a>
+            
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#about" class="hover:text-emerald-400 transition-colors">About</a>
+                <a href="#experience" class="hover:text-emerald-400 transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-emerald-400 transition-colors">Projects</a>
+                <a href="#skills" class="hover:text-emerald-400 transition-colors">Skills</a>
+                <a href="#research" class="hover:text-emerald-400 transition-colors">Research</a>
+                <a href="#contact" class="hover:text-emerald-400 transition-colors">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-xl bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition-all shadow-lg shadow-emerald-500/20">
+                    Get in Touch
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-300 hover:text-white focus:outline-none">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 py-4 space-y-3">
+            <a href="#about" class="block text-slate-300 hover:text-emerald-400 py-1 transition-colors mobile-link">About</a>
+            <a href="#experience" class="block text-slate-300 hover:text-emerald-400 py-1 transition-colors mobile-link">Experience</a>
+            <a href="#projects" class="block text-slate-300 hover:text-emerald-400 py-1 transition-colors mobile-link">Projects</a>
+            <a href="#skills" class="block text-slate-300 hover:text-emerald-400 py-1 transition-colors mobile-link">Skills</a>
+            <a href="#research" class="block text-slate-300 hover:text-emerald-400 py-1 transition-colors mobile-link">Research</a>
+            <a href="#contact" class="block text-slate-300 hover:text-emerald-400 py-1 transition-colors mobile-link">Contact</a>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-6xl mx-auto px-6 pt-28">
+
+        <!-- Hero Section with Profile Photo & Analytics Backdrop -->
+        <section id="hero" class="py-16 md:py-24 relative overflow-hidden">
+            <!-- Background glow effects -->
+            <div class="absolute top-10 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute top-60 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+                
+                <!-- Left: Text content -->
+                <div class="lg:col-span-7 flex flex-col items-start">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-emerald-400 text-xs font-semibold mb-6 shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        Based in Bengaluru, India
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6">
+                        Hi, I'm <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">Chanchal Panjabi</span>
+                    </h1>
+
+                    <p class="text-xl sm:text-2xl font-medium text-slate-300 max-w-3xl mb-4">
+                        Mathematics Graduate & Data / Risk Analytics Professional
+                    </p>
+
+                    <p class="text-slate-400 text-base sm:text-lg max-w-2xl leading-relaxed mb-8">
+                        Graduated with a top-tier <strong class="text-white font-semibold">9.86/10 CGPA</strong> in B.Sc. (Hons.) Mathematics from PDEU, complemented by advanced Data Science training from IIT Guwahati. Specializing in financial risk modeling, predictive time-series forecasting, and interactive BI dashboards.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-4">
+                        <a href="#projects" class="px-6 py-3.5 rounded-xl bg-emerald-500 text-slate-950 font-semibold hover:bg-emerald-400 transition-all flex items-center gap-2 shadow-xl shadow-emerald-500/20">
+                            <span>Explore My Work</span>
+                            <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                        </a>
+                        <button onclick="copyToClipboard('chanchalpanjabi04@gmail.com', 'Email copied!')" class="px-6 py-3.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 font-medium hover:bg-slate-800 hover:border-slate-700 transition-all flex items-center gap-2">
+                            <i data-lucide="mail" class="w-4 h-4 text-emerald-400"></i>
+                            <span>chanchalpanjabi04@gmail.com</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right: Profile Image Integration -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-sm">
+                        <div class="absolute -inset-2 bg-gradient-to-tr from-emerald-500 via-teal-500 to-cyan-500 rounded-3xl blur-md opacity-40"></div>
+                        <div class="relative rounded-3xl overflow-hidden border border-slate-700/80 bg-slate-900 shadow-2xl">
+                            <img src="C:\Users\CHANCHAL PANJABI\Downloads\pp.jpeg" alt="Chanchal Panjabi Profile Portrait" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Quick Stats Bar -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full mt-16 pt-10 border-t border-slate-900">
+                <div class="p-4 rounded-2xl bg-slate-900/50 border border-slate-800/80 backdrop-blur-sm">
+                    <p class="text-2xl sm:text-3xl font-extrabold text-white mb-1">9.86/10</p>
+                    <p class="text-xs sm:text-sm text-slate-400">B.Sc. Math CGPA (PDEU)</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-900/50 border border-slate-800/80 backdrop-blur-sm">
+                    <p class="text-2xl sm:text-3xl font-extrabold text-white mb-1">8.2/10</p>
+                    <p class="text-xs sm:text-sm text-slate-400">Data Science (IIT Guwahati)</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-900/50 border border-slate-800/80 backdrop-blur-sm">
+                    <p class="text-2xl sm:text-3xl font-extrabold text-white mb-1">2+</p>
+                    <p class="text-xs sm:text-sm text-slate-400">Analytics Internships</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-900/50 border border-slate-800/80 backdrop-blur-sm">
+                    <p class="text-2xl sm:text-3xl font-extrabold text-white mb-1">R² ≈ 0.93</p>
+                    <p class="text-xs sm:text-sm text-slate-400">LSTM Wind Model Accuracy</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 border-t border-slate-900">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5">
+                    <div class="relative">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-3xl blur opacity-25"></div>
+                        <div class="relative p-8 rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-6">
+                                <i data-lucide="user" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Professional Summary</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                                Mathematics graduate equipped with rigorous analytical thinking and hands-on expertise in Data Analytics, financial risk modeling, and machine learning. Adept at leveraging Python, SQL, Power BI, Tableau, and mathematical frameworks to derive actionable business insights and automate complex workflows.
+                            </p>
+                            <div class="space-y-3 text-sm border-t border-slate-800 pt-6">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-slate-400">Degree</span>
+                                    <span class="text-white font-medium">B.Sc. (Hons.) Mathematics</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-slate-400">Institution</span>
+                                    <span class="text-white font-medium">PDEU, Gandhinagar</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-slate-400">Specialization</span>
+                                    <span class="text-white font-medium">Data & Risk Analytics</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-slate-400">Location</span>
+                                    <span class="text-white font-medium">Bengaluru, Karnataka</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                        Core Expertise
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+                        Bridging Rigorous Mathematics with Real-World Data Solutions
+                    </h2>
+                    <p class="text-slate-300 leading-relaxed">
+                        My background in mathematics gives me a profound understanding of optimization, stochastic processes, and statistical modeling. Whether I am forecasting Antarctic wind patterns using LSTM neural networks or designing mathematical frameworks for banking risk exposure, I bridge abstract theory with scalable technical implementations.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 flex items-start gap-4">
+                            <div class="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 shrink-0">
+                                <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-1">Data & BI Analytics</h4>
+                                <p class="text-xs text-slate-400 leading-relaxed">Dashboard development, automated reporting workflows, and data cleaning across enterprise datasets.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 flex items-start gap-4">
+                            <div class="p-3 rounded-xl bg-teal-500/10 text-teal-400 shrink-0">
+                                <i data-lucide="shield-alert" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-1">Financial Risk Analytics</h4>
+                                <p class="text-xs text-slate-400 leading-relaxed">Probability distribution fitting, portfolio volatility modeling, and quantitative risk exposure assessment.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 flex items-start gap-4">
+                            <div class="p-3 rounded-xl bg-cyan-500/10 text-cyan-400 shrink-0">
+                                <i data-lucide="cpu" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-1">Machine Learning & Time-Series</h4>
+                                <p class="text-xs text-slate-400 leading-relaxed">VAR & LSTM forecasting, regression models, and optimization algorithms (Pareto & Multi-Objective).</p>
+                            </div>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 flex items-start gap-4">
+                            <div class="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 shrink-0">
+                                <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-1">Academic Excellence</h4>
+                                <p class="text-xs text-slate-400 leading-relaxed">Ranked among top scholars with 9.86 CGPA at PDEU and specialized Credit-Linked Data Science at IIT Guwahati.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-20 border-t border-slate-900">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold mb-3">
+                        <i data-lucide="briefcase" class="w-3.5 h-3.5"></i>
+                        Career Journey
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Professional Experience</h2>
+                </div>
+                <p class="text-slate-400 text-sm mt-2 md:mt-0">Applying analytical methods in real business environments</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Experience Card 1 -->
+                <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 flex flex-col justify-between relative group hover:border-emerald-500/50 transition-all">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-bl-full pointer-events-none group-hover:bg-emerald-500/10 transition-all"></div>
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold">Jun 2025 – Aug 2025</span>
+                            <span class="text-xs text-slate-400 font-mono">Ahmedabad</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1">Data Analytics Intern</h3>
+                        <p class="text-emerald-400 text-sm font-medium mb-6">Shri Om Infotech</p>
+                        
+                        <ul class="space-y-3 text-sm text-slate-300">
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-1"></i>
+                                <span>Analysed structured business datasets using Python, Pandas, Excel, Tableau, and Power BI to identify trends and generate actionable insights.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-1"></i>
+                                <span>Developed interactive Power BI and Tableau dashboards for monitoring key metrics and supporting data-driven decision-making.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-1"></i>
+                                <span>Performed comprehensive data cleaning, transformation, statistical analysis, and visualization.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-1"></i>
+                                <span>Automated recurring reporting workflows to reduce manual analysis and enhance reporting efficiency.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-8 pt-4 border-t border-slate-800/80 flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">Python</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">Power BI</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">Tableau</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">Pandas</span>
+                    </div>
+                </div>
+
+                <!-- Experience Card 2 -->
+                <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 flex flex-col justify-between relative group hover:border-emerald-500/50 transition-all">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-teal-500/5 rounded-bl-full pointer-events-none group-hover:bg-teal-500/10 transition-all"></div>
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 text-xs font-semibold">Feb 2026 – Mar 2026</span>
+                            <span class="text-xs text-slate-400 font-mono">Ahmedabad</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1">Financial Risk Management Intern</h3>
+                        <p class="text-teal-400 text-sm font-medium mb-6">Metis Intellisystems Pvt. Ltd.</p>
+                        
+                        <ul class="space-y-3 text-sm text-slate-300">
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-teal-400 shrink-0 mt-1"></i>
+                                <span>Developed a mathematical modeling framework for fitting statistical probability distributions to large-scale banking and portfolio datasets.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-teal-400 shrink-0 mt-1"></i>
+                                <span>Analysed portfolio data to model asset volatility and potential risk exposure under varying market conditions.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-teal-400 shrink-0 mt-1"></i>
+                                <span>Designed an interactive financial risk dashboard to visualize risk metrics, portfolio trends, and performance indicators.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-teal-400 shrink-0 mt-1"></i>
+                                <span>Streamlined data aggregation and statistical analysis workflows to improve consistency in risk reporting.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-8 pt-4 border-t border-slate-800/80 flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">Risk Modeling</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">Statistical Analysis</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">Dashboards</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Projects Section -->
+        <section id="projects" class="py-20 border-t border-slate-900">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold mb-3">
+                        <i data-lucide="folder-git-2" class="w-3.5 h-3.5"></i>
+                        Portfolio Highlights
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Selected Projects & Dissertation</h2>
+                </div>
+                <p class="text-slate-400 text-sm mt-2 md:mt-0">Advanced research, optimization, and market analytics</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Project 1 -->
+                <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 flex flex-col justify-between hover:border-emerald-500/50 transition-all group">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                                <i data-lucide="navigation" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-mono px-3 py-1 rounded-full bg-slate-800 text-slate-300">Dissertation</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">Multi-Objective Polar Route Optimization</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Developed a mathematical optimization framework for Antarctic maritime route planning across 6,625 spatial nodes between the Bharati and Maitri research stations. Integrated LSTM wind forecasting and XGBoost sea-ice prediction with Pareto optimization.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">LSTM</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">XGBoost</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">Pareto Opt</span>
+                        </div>
+                        <div class="pt-4 border-t border-slate-800 text-xs text-slate-400">
+                            Jun 2025 – May 2026 | B.Sc. Dissertation
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 flex flex-col justify-between hover:border-emerald-500/50 transition-all group">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-12 h-12 rounded-2xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-400">
+                                <i data-lucide="wind" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-mono px-3 py-1 rounded-full bg-slate-800 text-slate-300">Research</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-teal-400 transition-colors">Antarctic Wind Forecasting using VAR & LSTM</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Developed Vector Autoregression (VAR) and Long Short-Term Memory (LSTM) time-series models to forecast zonal and meridional wind components using ERA5 reanalysis data. Achieved <strong class="text-white">R² ≈ 0.93</strong> with the LSTM framework.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">VAR Model</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">LSTM</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">ERA5 Data</span>
+                        </div>
+                        <div class="pt-4 border-t border-slate-800 text-xs text-slate-400">
+                            Presented at FPAM 2025 | Paper Under Review
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 flex flex-col justify-between hover:border-emerald-500/50 transition-all group">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+                                <i data-lucide="trending-up" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-mono px-3 py-1 rounded-full bg-slate-800 text-slate-300">Financial Analytics</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">Financial Market Analysis & Volatility Modelling</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Analysed 180 days of historical stock market data using Moving Averages and Bollinger Bands. Conducted comparative return and volatility analysis while developing interactive candlestick visualizations to translate quantitative findings into insights.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">Python</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">Bollinger Bands</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">Volatility</span>
+                        </div>
+                        <div class="pt-4 border-t border-slate-800 text-xs text-slate-400">
+                            April 2025 | Quantitative Finance
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills & Education Section -->
+        <section id="skills" class="py-20 border-t border-slate-900">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold mb-3">
+                        <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+                        Capabilities & Credentials
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Technical Skills & Education</h2>
+                </div>
+                <p class="text-slate-400 text-sm mt-2 md:mt-0">Comprehensive academic and technical toolkit</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <!-- Skill Category 1 -->
+                <div class="p-6 rounded-3xl bg-slate-900 border border-slate-800">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4">
+                        <i data-lucide="code" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Programming & Data</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-800/80 text-slate-200 text-xs font-medium">Python</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-800/80 text-slate-200 text-xs font-medium">SQL</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-800/80 text-slate-200 text-xs font-medium">R</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-800/80 text-slate-200 text-xs font-medium">MATLAB</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-800/80 text-slate-200 text-xs font-medium">Pandas</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-800/80 text-slate-200 text-xs font-medium">NumPy</span>
+                    </div>
+                </div>
+
+                <!-- Skill Category 2 -->
+                <div class="p-6 rounded-3xl bg-slate-900 border border-slate-800">
+                    <div class="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center mb-4">
+                        <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Analytics & BI Tools</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-800/80 text-slate-200 text-xs font-medium">Microsoft Excel</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-800/80 text-slate-200 text-xs font-medium">Power BI</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-800/80 text-slate-200 text-xs font-medium">Tableau</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-800/80 text-slate-200 text-xs font-medium">Data Cleaning</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-800/80 text-slate-200 text-xs font-medium">Statistical Analysis</span>
+                    </div>
+                </div>
+
+                <!-- Skill Category 3 -->
+                <div class="p-6 rounded-3xl bg-slate-900 border border-slate-800">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4">
+                        <i data-lucide="brain" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Statistics & ML</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-800/80 text-slate-200 text-xs font-medium">Regression Analysis</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-800/80 text-slate-200 text-xs font-medium">Supervised Learning</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-800/80 text-slate-200 text-xs font-medium">Time-Series Forecasting</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-800/80 text-slate-200 text-xs font-medium">Scikit-Learn</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-800/80 text-slate-200 text-xs font-medium">XGBoost & LSTM</span>
+                    </div>
+                </div>
+
+                <!-- Skill Category 4 -->
+                <div class="p-6 rounded-3xl bg-slate-900 border border-slate-800">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4">
+                        <i data-lucide="calculator" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Math & Quantitative</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-800/80 text-slate-200 text-xs font-medium">Statistical Modeling</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-800/80 text-slate-200 text-xs font-medium">Mathematical Modeling</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-800/80 text-slate-200 text-xs font-medium">Optimization</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-800/80 text-slate-200 text-xs font-medium">Operations Research</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-800/80 text-slate-200 text-xs font-medium">Graph Algorithms</span>
+                    </div>
+                </div>
+
+                <!-- Skill Category 5 -->
+                <div class="p-6 rounded-3xl bg-slate-900 border border-slate-800">
+                    <div class="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center mb-4">
+                        <i data-lucide="wrench" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Tools & Developer Stack</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-800/80 text-slate-200 text-xs font-medium">Git & GitHub</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-800/80 text-slate-200 text-xs font-medium">TensorFlow/Keras</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-800/80 text-slate-200 text-xs font-medium">LaTeX</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-800/80 text-slate-200 text-xs font-medium">QGIS</span>
+                    </div>
+                </div>
+
+                <!-- Education Card -->
+                <div class="p-6 rounded-3xl bg-slate-900 border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4">
+                            <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Education Credentials</h3>
+                        <div class="space-y-3 text-xs text-slate-300">
+                            <div>
+                                <p class="font-semibold text-white">B.Sc. (Hons.) Mathematics</p>
+                                <p class="text-slate-400">PDEU, Gandhinagar • CGPA: 9.86/10 (2022–2026)</p>
+                            </div>
+                            <div class="border-t border-slate-800/80 pt-2">
+                                <p class="font-semibold text-white">Credit-Linked Program in Data Science</p>
+                                <p class="text-slate-400">Daksh Gurukul, IIT Guwahati • CGPA: 8.2/10 (2025–2026)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research & Certifications Section -->
+        <section id="research" class="py-20 border-t border-slate-900">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Research & Publication -->
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold mb-3">
+                        <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+                        Scholarly Work
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-6">Research & Publication</h2>
+
+                    <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800 relative group hover:border-emerald-500/50 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4">
+                            <i data-lucide="award" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">
+                            Time-Series Forecasting of Zonal and Meridional Wind Components over Antarctic Region Using VAR and LSTM
+                        </h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Developed and evaluated Vector Autoregression and LSTM forecasting models using ERA5 data. Comparative performance analysis demonstrated robust predictive capability with <strong class="text-white">LSTM (R² ≈ 0.93)</strong>. Presented at FPAM 2025; paper currently under review.
+                        </p>
+                        <div class="flex items-center gap-3 text-xs text-slate-400 pt-4 border-t border-slate-800">
+                            <span class="flex items-center gap-1 text-emerald-400 font-medium">
+                                <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Presented at FPAM 2025
+                            </span>
+                            <span>•</span>
+                            <span>Peer Review In Progress</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 text-xs font-semibold mb-3">
+                        <i data-lucide="badge-check" class="w-3.5 h-3.5"></i>
+                        Professional Development
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-6">Certifications</h2>
+
+                    <div class="space-y-4">
+                        <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-between hover:border-teal-500/50 transition-all">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center shrink-0">
+                                    <i data-lucide="award" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm sm:text-base">R Programming for Statistics and Data Science</h4>
+                                    <p class="text-xs text-slate-400">365 Careers</p>
+                                </div>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-teal-400 text-xs font-mono">Verified</span>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-between hover:border-teal-500/50 transition-all">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center shrink-0">
+                                    <i data-lucide="award" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm sm:text-base">Machine Learning A-Z: AI, Python, and R</h4>
+                                    <p class="text-xs text-slate-400">Udemy</p>
+                                </div>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-teal-400 text-xs font-mono">Verified</span>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-between hover:border-teal-500/50 transition-all">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center shrink-0">
+                                    <i data-lucide="award" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm sm:text-base">Microsoft Excel</h4>
+                                    <p class="text-xs text-slate-400">365 Careers</p>
+                                </div>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-teal-400 text-xs font-mono">Verified</span>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-between hover:border-teal-500/50 transition-all">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center shrink-0">
+                                    <i data-lucide="award" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm sm:text-base">Data Science Odyssey</h4>
+                                    <p class="text-xs text-slate-400">PDEU</p>
+                                </div>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-teal-400 text-xs font-mono">Verified</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 border-t border-slate-900 mb-12">
+            <div class="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 border border-slate-800 relative overflow-hidden shadow-2xl">
+                <div class="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="max-w-2xl relative z-10">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold mb-4">
+                        <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+                        Let's Connect
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+                        Open for Opportunities in Data Analytics & Risk Modeling
+                    </h2>
+                    <p class="text-slate-300 text-base mb-8 leading-relaxed">
+                        I am actively seeking entry-level opportunities in Data Analytics, Risk Analytics, or Quantitative Analytics. Feel free to reach out via email or connect with me on LinkedIn.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                        <button onclick="copyToClipboard('chanchalpanjabi04@gmail.com', 'Email copied!')" class="p-4 rounded-2xl bg-slate-800/80 border border-slate-700/60 flex items-center gap-4 hover:bg-slate-800 hover:border-emerald-500/50 transition-all text-left group">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-all">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <p class="text-xs text-slate-400">Email Me</p>
+                                <p class="text-sm font-semibold text-white truncate">chanchalpanjabi04@gmail.com</p>
+                            </div>
+                        </button>
+
+                        <a href="https://linkedin.com/in/chanchalpanjabi" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-slate-800/80 border border-slate-700/60 flex items-center gap-4 hover:bg-slate-800 hover:border-emerald-500/50 transition-all text-left group">
+                            <div class="w-12 h-12 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center shrink-0 group-hover:bg-teal-500 group-hover:text-slate-950 transition-all">
+                                <i data-lucide="linkedin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400">LinkedIn Profile</p>
+                                <p class="text-sm font-semibold text-white">in/chanchalpanjabi</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-6 text-sm text-slate-400 pt-6 border-t border-slate-800">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="phone" class="w-4 h-4 text-emerald-400"></i>
+                            <span>+91-7043740804 / +91-8780884085</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-emerald-400"></i>
+                            <span>Bengaluru, Karnataka, India</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-900 bg-slate-950 py-10">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <p class="text-sm text-slate-400">
+                © <span id="current-year"></span> Chanchal Panjabi. All rights reserved.
+            </p>
+            <p class="text-xs text-slate-500 flex items-center gap-1">
+                Designed with precision & mathematical rigor
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript logic -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Copy to clipboard helper function
+        function copyToClipboard(text, successMessage) {
+            const dummy = document.createElement('textarea');
+            document.body.appendChild(dummy);
+            dummy.value = text;
+            dummy.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummy);
+
+            showToast(successMessage);
+        }
+
+        // Toast notification system
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            toastMessage.textContent = message;
+            
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
